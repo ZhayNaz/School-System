@@ -62,3 +62,4 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 "# School-System"  git init git add README.md git commit -m "first commit" git branch -M main git remote add origin https://github.com/ZhayNaz/School-System.git git push -u origin main
 # School-System
 # Just another github repo
+# Trial-System

@@ -1,0 +1,480 @@
+<!-- <template></template>
+    <v-container>
+        <h2>Voting system:</h2>
+        <v-btn color="error" small @click="status = 1">page 1</v-btn>
+        <v-btn color="success" small @click="status = 2">page 2</v-btn><br><br>
+        <h3>Winner:</h3>
+        <h3><b>{{winningSection}}</b></h3>
+
+        <v-row v-if="status == 1">
+            <v-col>
+                <b>BS Computer Engineering</b>
+                <v-text-field
+                v-model="cpe"
+                @change="winnerTotal()"
+                outlined
+                readonly
+                dense/>
+                <v-row>
+                    <v-col>
+                        <v-btn block color="primary" @click="cpe10()"><b>10 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="cpe9()"><b>9 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="cpe8()"><b>8 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="cpe7()"><b>7 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="cpe6()"><b>6 Points</b></v-btn><br>
+                    </v-col>
+                    <v-col>
+                        <v-btn block color="primary" @click="cpe5()"><b>5 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="cpe4()"><b>4 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="cpe3()"><b>3 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="cpe2()"><b>2 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="cpe1()"><b>1 Point</b></v-btn>
+                    </v-col>
+                </v-row>
+            </v-col>
+            <v-col>
+                <b>BS Psychology 1A</b>
+                <v-text-field
+                outlined
+                @change="winnerTotal()"
+                v-model="psychAA"
+                readonly
+                dense/>
+                <v-row>
+                    <v-col>
+                        <v-btn block color="primary" @click="psych1A10()"><b>10 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych1A9()"><b>9 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych1A8()"><b>8 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych1A7()"><b>7 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych1A6()"><b>6 Points</b></v-btn><br>
+                    </v-col>
+                    <v-col>
+                        <v-btn block color="primary" @click="psych1A5()"><b>5 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych1A4()"><b>4 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych1A3()"><b>3 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych1A2()"><b>2 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych1A1()"><b>1 Point</b></v-btn>
+                    </v-col>
+                </v-row>
+            </v-col>
+            <v-col>
+                <b>BS Psychology 1B</b>
+                <v-text-field
+                outlined
+                v-model="psychAB"
+                readonly
+                dense/>
+                <v-row>
+                    <v-col>
+                        <v-btn block color="primary" @click="psych2A10()"><b>10 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych2A9()"><b>9 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych2A8()"><b>8 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych2A7()"><b>7 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych2A6()"><b>6 Points</b></v-btn><br>
+                    </v-col>
+                    <v-col>
+                        <v-btn block color="primary" @click="psych2A5()"><b>5 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych2A4()"><b>4 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych2A3()"><b>3 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych2A2()"><b>2 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psych2A1()"><b>1 Point</b></v-btn>
+                    </v-col>
+                </v-row>
+            </v-col>
+            <v-col>
+                <b>BS Psychology 2</b>
+                <v-text-field
+                outlined
+                v-model="psychB"
+                readonly
+                dense/>
+                <v-row>
+                    <v-col>
+                        <v-btn block color="primary" @click="psychB10()"><b>10 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psychB9()"><b>9 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psychB8()"><b>8 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psychB7()"><b>7 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psychB6()"><b>6 Points</b></v-btn><br>
+                    </v-col>
+                    <v-col>
+                        <v-btn block color="primary" @click="psychB5()"><b>5 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psychB4()"><b>4 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psychB3()"><b>3 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psychB2()"><b>2 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="psychB1()"><b>1 Point</b></v-btn>
+                    </v-col>
+                </v-row>
+            </v-col>
+        </v-row>
+        <v-row v-else-if="status == 2">
+            <v-col>
+                <b>BSA 1 & BSMA 1</b>
+                <v-text-field
+                outlined
+                readonly
+                v-model="accountancy1"
+                dense/>
+                <v-row>
+                    <v-col>
+                        <v-btn block color="primary" @click="BSA_BSMA110()"><b>10 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="BSA_BSMA19()"><b>9 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="BSA_BSMA18()"><b>8 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="BSA_BSMA17()"><b>7 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="BSA_BSMA16()"><b>6 Points</b></v-btn><br>
+                    </v-col>
+                    <v-col>
+                        <v-btn block color="primary" @click="BSA_BSMA15()"><b>5 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="BSA_BSMA14()"><b>4 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="BSA_BSMA13()"><b>3 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="BSA_BSMA12()"><b>2 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="BSA_BSMA11()"><b>1 Point</b></v-btn>
+                    </v-col>
+                </v-row>
+            </v-col>
+            <v-col>
+                <b>BS Office Administration 2</b>
+                <v-text-field
+                outlined
+                v-model="oa2"
+                readonly
+                dense/>
+                <v-row>
+                    <v-col>
+                        <v-btn block color="primary" @click="oaB10()"><b>10 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaB9()"><b>9 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaB8()"><b>8 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaB7()"><b>7 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaB6()"><b>6 Points</b></v-btn><br>
+                    </v-col>
+                    <v-col>
+                        <v-btn block color="primary" @click="oaB5()"><b>5 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaB4()"><b>4 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaB3()"><b>3 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaB2()"><b>2 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaB1()"><b>1 Point</b></v-btn>
+                    </v-col>
+                </v-row>
+            </v-col>
+            <v-col>
+                <b>BS Office Administration 1</b>
+                <v-text-field
+                outlined
+                v-model="oa1"
+                readonly
+                dense/>
+                <v-row>
+                    <v-col>
+                        <v-btn block color="primary" @click="oaA10()"><b>10 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaA9()"><b>9 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaA8()"><b>8 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaA7()"><b>7 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaA6()"><b>6 Points</b></v-btn><br>
+                    </v-col>
+                    <v-col>
+                        <v-btn block color="primary" @click="oaA5()"><b>5 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaA4()"><b>4 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaA3()"><b>3 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaA2()"><b>2 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="oaA1()"><b>1 Point</b></v-btn>
+                    </v-col>
+                </v-row>
+            </v-col>
+            <v-col>
+                <b>BSA 2 & BSMA 2</b>
+                <v-text-field
+                outlined
+                readonly
+                v-model="accountancy2"
+                dense/>
+                <v-row>
+                    <v-col>
+                        <v-btn block color="primary" @click="bsa_bsma210()"><b>10 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="bsa_bsma29()"><b>9 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="bsa_bsma28()"><b>8 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="bsa_bsma27()"><b>7 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="bsa_bsma26()"><b>6 Points</b></v-btn><br>
+                    </v-col>
+                    <v-col>
+                        <v-btn block color="primary" @click="bsa_bsma25()"><b>5 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="bsa_bsma24()"><b>4 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="bsa_bsma23()"><b>3 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="bsa_bsma22()"><b>2 Points</b></v-btn><br>
+                        <v-btn block color="primary" @click="bsa_bsma21()"><b>1 Point</b></v-btn>
+                    </v-col>
+                </v-row>
+            </v-col>
+        </v-row>
+    </v-container>
+</template>
+<script>
+export default {
+  data: () => ({
+   status: 1,
+   cpe: 0,
+   oa1: 0,
+   oa2: 0,
+   psychAA: 0,
+   psychAB: 0,
+   psychB: 0,
+   accountancy1: 0,
+   accountancy2: 0,
+   winningSection:'',
+  }),
+  methods:{
+    cpe10(){
+        this.cpe = this.cpe + 10
+    },
+    cpe9(){
+        this.cpe = this.cpe + 9
+    },
+    cpe8(){
+        this.cpe = this.cpe + 8
+    },
+    cpe7(){
+        this.cpe = this.cpe + 7
+    },
+    cpe6(){
+        this.cpe = this.cpe + 6
+    },
+    cpe5(){
+        this.cpe = this.cpe + 5
+    },
+    cpe4(){
+        this.cpe = this.cpe + 4
+    },
+    cpe3(){
+        this.cpe = this.cpe + 3
+    },
+    cpe2(){
+        this.cpe = this.cpe + 2
+    },
+    cpe1(){
+        this.cpe = this.cpe + 1
+    },
+
+    psych1A10(){
+        this.psychAA = this.psychAA + 10
+    },
+    psych1A9(){
+        this.psychAA = this.psychAA + 9
+    },
+    psych1A8(){
+        this.psychAA = this.psychAA + 8
+    },
+    psych1A7(){
+        this.psychAA = this.psychAA + 7
+    },
+    psych1A6(){
+        this.psychAA = this.psychAA + 6
+    },
+    psych1A5(){
+        this.psychAA = this.psychAA + 5
+    },
+    psych1A4(){
+        this.psychAA = this.psychAA + 4
+    },
+    psych1A3(){
+        this.psychAA = this.psychAA + 3
+    },
+    psych1A2(){
+        this.psychAA = this.psychAA + 2
+    },
+    psych1A1(){
+        this.psychAA = this.psychAA + 1
+    },
+
+    psych2A10(){
+        this.psychAB = this.psychAB + 10
+    },
+    psych2A9(){
+        this.psychAB = this.psychAB + 9
+    },
+    psych2A8(){
+        this.psychAB = this.psychAB + 8
+    },
+    psych2A7(){
+        this.psychAB = this.psychAB + 7
+    },
+    psych2A6(){
+        this.psychAB = this.psychAB + 6
+    },
+    psych2A5(){
+        this.psychAB = this.psychAB + 5
+    },
+    psych2A4(){
+        this.psychAB = this.psychAB + 4
+    },
+    psych2A3(){
+        this.psychAB = this.psychAB + 3
+    },
+    psych2A2(){
+        this.psychAB = this.psychAB + 2
+    },
+    psych2A1(){
+        this.psychAB = this.psychAB + 1
+    },
+
+    psychB10(){
+        this.psychB = this.psychB + 10
+    },
+    psychB9(){
+        this.psychB = this.psychB + 9
+    },
+    psychB8(){
+        this.psychB = this.psychB + 8
+    },
+    psychB7(){
+        this.psychB = this.psychB + 7
+    },
+    psychB6(){
+        this.psychB = this.psychB + 6
+    },
+    psychB5(){
+        this.psychB = this.psychB + 5
+    },
+    psychB4(){
+        this.psychB = this.psychB + 4
+    },
+    psychB3(){
+        this.psychB = this.psychB + 3
+    },
+    psychB2(){
+        this.psychB = this.psychB + 2
+    },
+    psychB1(){
+        this.psychB = this.psychB + 1
+    },
+
+    BSA_BSMA110(){
+        this.accountancy1 = this.accountancy1 + 10
+    },
+    BSA_BSMA19(){
+        this.accountancy1 = this.accountancy1 + 9
+    },
+    BSA_BSMA18(){
+        this.accountancy1 = this.accountancy1 + 8
+    },
+    BSA_BSMA17(){
+        this.accountancy1 = this.accountancy1 + 7
+    },
+    BSA_BSMA16(){
+        this.accountancy1 = this.accountancy1 + 6
+    },
+    BSA_BSMA15(){
+        this.accountancy1 = this.accountancy1 + 5
+    },
+    BSA_BSMA14(){
+        this.accountancy1 = this.accountancy1 + 4
+    },
+    BSA_BSMA13(){
+        this.accountancy1 = this.accountancy1 + 3
+    },
+    BSA_BSMA12(){
+        this.accountancy1 = this.accountancy1 + 2
+    },
+    BSA_BSMA11(){
+        this.accountancy1 = this.accountancy1 + 1
+    },
+
+    oaB10(){
+        this.oa2 = this.oa2 + 10
+    },
+    oaB9(){
+        this.oa2 = this.oa2 + 9
+    },
+    oaB8(){
+        this.oa2 = this.oa2 + 8
+    },
+    oaB7(){
+        this.oa2 = this.oa2 + 7
+    },
+    oaB6(){
+        this.oa2 = this.oa2 + 6
+    },
+    oaB5(){
+        this.oa2 = this.oa2 + 5
+    },
+    oaB4(){
+        this.oa2 = this.oa2 + 4
+    },
+    oaB3(){
+        this.oa2 = this.oa2 + 3
+    },
+    oaB2(){
+        this.oa2 = this.oa2 + 2
+    },
+    oaB1(){
+        this.oa2 = this.oa2 + 1
+    },
+
+    oaA10(){
+        this.oa1 = this.oa1 + 10
+    },
+    oaA9(){
+        this.oa1 = this.oa1 + 9
+    },
+    oaA8(){
+        this.oa1 = this.oa1 + 8
+    },
+    oaA7(){
+        this.oa1 = this.oa1 + 7
+    },
+    oaA6(){
+        this.oa1 = this.oa1 + 6
+    },
+    oaA5(){
+        this.oa1 = this.oa1 + 5
+    },
+    oaA4(){
+        this.oa1 = this.oa1 + 4
+    },
+    oaA3(){
+        this.oa1 = this.oa1 + 3
+    },
+    oaA2(){
+        this.oa1 = this.oa1 + 2
+    },
+    oaA1(){
+        this.oa1 = this.oa1 + 1
+    },
+
+    bsa_bsma210(){
+        this.accountancy2 = this.accountancy2 + 10
+    },
+    bsa_bsma29(){
+        this.accountancy2 = this.accountancy2 + 9
+    },
+    bsa_bsma28(){
+        this.accountancy2 = this.accountancy2 + 8
+    },
+    bsa_bsma27(){
+        this.accountancy2 = this.accountancy2 + 7
+    },
+    bsa_bsma26(){
+        this.accountancy2 = this.accountancy2 + 6
+    },
+    bsa_bsma25(){
+        this.accountancy2 = this.accountancy2 + 5
+    },
+    bsa_bsma24(){
+        this.accountancy2 = this.accountancy2 + 4
+    },
+    bsa_bsma23(){
+        this.accountancy2 = this.accountancy2 + 3
+    },
+    bsa_bsma22(){
+        this.accountancy2 = this.accountancy2 + 2
+    },
+    bsa_bsma21(){
+        this.accountancy2 = this.accountancy2 + 1
+    },
+
+    winnerTotal(){
+        if(this.cpe < this.psychAA){
+            this.winningSection = 'BS Compouter Engineering'
+            console.log(this.cpe);
+        }
+    },
+  }
+};
+</script> -->
